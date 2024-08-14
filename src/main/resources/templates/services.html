@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        Service Page 
+    </title>
 </head>
 <body>
-    <h1>THIS IS SERVICES PAGE</h1>
+    <div id="content">
+        <h1>Welcome to service page</h1>
+        <h2>Hi</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto laboriosam sunt quibusdam consequatur, accusamus dolore, suscipit nesciunt et aliquid nisi harum impedit iste voluptate doloribus unde in quas quam debitis?</p>
+
+    </div>
+    <script>
+        console.log(" ServicePage");
+       
+    </script>
 </body>
 </html>

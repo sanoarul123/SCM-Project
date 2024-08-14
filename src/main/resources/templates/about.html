@@ -1,26 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        About Page
+    </title>
 </head>
 <body>
-    <h1>THIS IS ABOUT PAGE</h1>
-    <hr>
 
-    <div >
 
-        <section>
+    <div id="content">
+         <h1>Welcome to about page</h1>
+         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt, sint excepturi perferendis laudantium dolore animi, harum placeat ullam eius laboriosam sit, libero corporis dolorum labore ipsum autem. Qui, voluptates ex!</p>
 
-            <h1>User Loged in</h1>
-            <h2>Dynamic content</h2>
-
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate saepe aliquam fugiat sint quasi laudantium iure, odio atque illo id vel! Praesentium placeat delectus quaerat, fuga debitis labore deleniti corporis!</p>
-            <button>CLICK ON DYNAMIC CONTENT</button>
-
-        </section>
 
     </div>
+
+    <script>
+           console.log(" AboutPage");
+    </script>
 </body>
 </html>
