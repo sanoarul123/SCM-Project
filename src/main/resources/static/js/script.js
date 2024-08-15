@@ -15,10 +15,10 @@ function changeTheme(){
 
 
 
-     const oldTheme = currentTheme;
+
     
     change_theme.addEventListener('click',(event) => {
-
+        let oldTheme = currentTheme;
 
 
 
