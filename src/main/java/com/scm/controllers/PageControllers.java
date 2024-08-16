@@ -12,7 +12,6 @@ import com.scm.entities.User;
 import com.scm.forms.UserForm;
 import com.scm.services.UserService;
 
-
 @Controller
 public class PageControllers {
 
@@ -39,12 +38,11 @@ public class PageControllers {
 
     @GetMapping("/register")
     public String register(Model model) {
-       UserForm userForm = new UserForm();
+        UserForm userForm = new UserForm();
 
-      
-       model.addAttribute("userForm", userForm);
+        model.addAttribute("userForm", userForm);
 
-       return "register";
+        return "register";
     }
 
     @RequestMapping("/about")
@@ -64,26 +62,23 @@ public class PageControllers {
     // Processing register
 
     @RequestMapping(value = "/do-register", method = RequestMethod.POST)
-    public String processRegister(@ModelAttribute UserForm userForm){
+    public String processRegister(@ModelAttribute UserForm userForm) {
 
         System.out.println("Processing registration");
 
         System.out.println(userForm);
 
-
         User user = User.builder()
-        .name(userForm.getName())
-        .email(userForm.getEmail())
-        .password(userForm.getPassword())
-        .about(userForm.getAbout())
-        .phonenumber(userForm.getPhoneNumber())
-        .profilepic("https://codeforces.org/s/53835/images/codeforces-sponsored-by-ton.png")
-        .build();
+                .name(userForm.getName())
+                .email(userForm.getEmail())
+                .password(userForm.getPassword())
+                .about(userForm.getAbout())
+                .phonenumber(userForm.getPhoneNumber())
+                .profilepic("https://codeforces.org/s/53835/images/codeforces-sponsored-by-ton.png")
+                .build();
         userService.saveUser(user);
 
         System.out.println("user saved : ");
-
-
 
         return "redirect:/register";
     }
