@@ -1,5 +1,6 @@
 package com.scm.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,10 +8,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import com.scm.entities.User;
 import com.scm.forms.UserForm;
+import com.scm.services.UserService;
+
 
 @Controller
 public class PageControllers {
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/home")
     public String home(Model model) {
@@ -62,6 +69,21 @@ public class PageControllers {
         System.out.println("Processing registration");
 
         System.out.println(userForm);
+
+
+        User user = User.builder()
+        .name(userForm.getName())
+        .email(userForm.getEmail())
+        .password(userForm.getPassword())
+        .about(userForm.getAbout())
+        .phonenumber(userForm.getPhoneNumber())
+        .profilepic("https://codeforces.org/s/53835/images/codeforces-sponsored-by-ton.png")
+        .build();
+        userService.saveUser(user);
+
+        System.out.println("user saved : ");
+
+
 
         return "redirect:/register";
     }

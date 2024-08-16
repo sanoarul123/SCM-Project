@@ -6,14 +6,15 @@ import java.util.Optional;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.UUID;
 import com.scm.entities.User;
 import com.scm.helpers.ResourceNotFoundException;
 import com.scm.repsitories.UserRepo;
 import com.scm.services.UserService;
 
+
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -25,6 +26,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public User saveUser(User user) {
         // TODO Auto-generated method stub
+        String userId = UUID.randomUUID().toString();
+        user.setUserid(userId);
         return userRepo.save(user);
     }
 
@@ -51,6 +54,8 @@ public class UserServiceImpl implements UserService {
 
     //    save the user in database
 
+
+        
         User save = userRepo.save(user);
 
         return Optional.ofNullable(save); 
@@ -64,7 +69,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean isUserExist(String userId) {
-        User user2 = userRepo.findById(userId)        
+        User user2 = userRepo.findById(userId).orElse(null);
+        return user2 != null ? true : false;      
 
      
     }
@@ -72,13 +78,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean isUserExistByEmail(String email) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isUserExistByEmail'");
+        User user = userRepo.findByEmail(email).orElse(null);
+        return user != null ? true : false;      
+
     }
 
     @Override
-    public List<User> getAllUsers() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllUsers'");
+    public List<User> getAllUsers(){
+         return userRepo.findAll();
     }
 
 
