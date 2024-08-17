@@ -19,17 +19,17 @@ import lombok.ToString;
 public class UserForm {
 
     @NotBlank(message = "Username is required")
-    @Size(min = 3,message = "Min 3 cCCharacters is required")
-    private  String name;
+    @Size(min = 3, message = "Min 3 Characters is required")
+    private String name;
 
     @Email(message = "Invalid Email Address")
-    private  String email;
+    @NotBlank(message = "Email Is required")
+    private String email;
     @NotBlank(message = "Password Is required")
-    private  String password;
+    private String password;
     @NotBlank(message = "About is equired")
-    private  String about;
+    private String about;
     @Size(min = 8, max = 12, message = "Invalid Phone Number")
-    private  String phoneNumber ;
-
+    private String phoneNumber;
 
 }
