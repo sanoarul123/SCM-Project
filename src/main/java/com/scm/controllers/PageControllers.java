@@ -94,7 +94,8 @@ public class PageControllers {
         System.out.println("user saved : ");
 
 
-        Message message = Message.builder().content("Registration Successful").type(MessageType.green).build();
+       // Message message = Message.builder().content("This is the content").type(MessageType.green).build();
+         Message message = Message.builder().content("Registration Successful").type(MessageType.green).build();
         session.setAttribute("message",message);
 
         return "redirect:/register";
