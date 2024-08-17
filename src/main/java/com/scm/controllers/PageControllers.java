@@ -68,14 +68,23 @@ public class PageControllers {
 
         System.out.println(userForm);
 
-        User user = User.builder()
-                .name(userForm.getName())
-                .email(userForm.getEmail())
-                .password(userForm.getPassword())
-                .about(userForm.getAbout())
-                .phonenumber(userForm.getPhoneNumber())
-                .profilepic("https://codeforces.org/s/53835/images/codeforces-sponsored-by-ton.png")
-                .build();
+        // User user = User.builder()
+        // .name(userForm.getName())
+        // .email(userForm.getEmail())
+        // .password(userForm.getPassword())
+        // .about(userForm.getAbout())
+        // .phonenumber(userForm.getPhoneNumber())
+        // .profilepic("https://codeforces.org/s/53835/images/codeforces-sponsored-by-ton.png")
+        // .build();
+
+        User user = new User();
+        user.setName(userForm.getName());
+        user.setEmail(userForm.getEmail());
+        user.setPassword(userForm.getPassword());
+        user.setAbout(userForm.getAbout());
+        user.setPhonenumber(userForm.getPhoneNumber());
+        user.setProfilepic("https://codeforces.org/s/53835/images/codeforces-sponsored-by-ton.png\"");
+
         userService.saveUser(user);
 
         System.out.println("user saved : ");

@@ -14,7 +14,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-// import javax.persistence.EnumType;
 
 import java.util.*;
 
@@ -44,7 +43,7 @@ public class User {
     private boolean emailvarified = false;
     private boolean phonevarified = false;
 
-    // @Enumerated(value =EnumType,STRING)
+    @Enumerated(value = EnumType.STRING)
     private Providers provider = Providers.SELF;
     private String providerUserId;
 
